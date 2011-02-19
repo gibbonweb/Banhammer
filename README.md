@@ -1,3 +1,5 @@
+*** Copyright & License ***
+
 Copyright 2011  Johannes Becker (email : johannes@gibbonweb.net)
 
 This program is free software; you can redistribute it and/or modify
