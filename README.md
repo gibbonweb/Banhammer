@@ -17,9 +17,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 *** Banhammer ***
 
-Banhammer is a class designed to prevent "lazy" SPAM, i.e. SPAM messages
+Banhammer is a function designed to prevent "lazy" SPAM, i.e. SPAM messages
 which are spread over thousands of websites without any modification.
 The idea of Banhammer was first brought up in a [discussion on
 webdevRefinery.com][1].
+
+Banhammer contains the Wordpress plugin "wp-banhammer" which uses the banhammer
+function on incoming blog comments.
 
 [1]: http://www.webdevrefinery.com/forums/topic/7318-the-lazy-spammer-banhammer/
