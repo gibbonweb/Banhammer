@@ -43,7 +43,7 @@ function banhammer($string) {
     return (isset($json->responseData->cursor->estimatedResultCount))
         ? (floatval($json->responseData->cursor->estimatedResultCount)
             > BANHAMMER_THRESHOLD)
-        : "false";
+        : false;
 }
 
 ?>

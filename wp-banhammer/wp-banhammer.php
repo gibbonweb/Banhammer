@@ -308,6 +308,14 @@ function wpbanhammer_checkforspam($comment) {
     // admins can do what they like
     if( is_admin() )
         return $comment;
+        
+	// get rid of doublequotes in our comment, so we can use it as a quoted
+	// search string:
+	$checkstring = str_replace('"','',$comment['comment_content']);
+	
+	$url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0"
+    		. "&q=" . urlencode($checkstring)
+    		. "&userip=" . $_SERVER['REMOTE_ADDR'];
     
     // get our options
     $type = $comment['comment_type'];
