@@ -21,7 +21,7 @@
 // the threshold value of the number of Google results
 // above which you consider the string to be SPAM.
 // Using a smaller value might increase false positives.
-define("BANHAMMER_THRESHOLD",1000);
+define("BANHAMMER_THRESHOLD",100);
 // the minimum number of words for which the test is
 // performed.
 // Using a smaller value might increase false positives.
@@ -39,7 +39,7 @@ define("BANHAMMER_MINWORDS",20);
  */
 function banhammer($string) {
     // remove double quotes, so that quote search in Google won't break.
-    $string = str_replace('"','',$string);
+    $string = '"'.str_replace('"','',$string).'"';
     // if the string is shorter than BANHAMMER_MINWORDS words, we risk
     // banning false positives. Banhammer will therefore only act on
     // phrases with more than BANHAMMER_MINWORDS words.
@@ -59,6 +59,7 @@ function banhammer($string) {
     $json = json_decode(curl_exec($ch));
     curl_close($ch);
     // perform the actual Banhammer check and return the result
+    //echo "\n".$json->responseData->cursor->estimatedResultCount."\n";
     return (isset($json->responseData->cursor->estimatedResultCount))
         ? (floatval($json->responseData->cursor->estimatedResultCount)
             > BANHAMMER_THRESHOLD)
